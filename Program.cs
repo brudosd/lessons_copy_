@@ -251,19 +251,61 @@
 // 456 => [6 5 4]
 // 781 => [1 8 7]
 
-System.Console.WriteLine("Введите трехзначное натуральное число");
-int number = Convert.ToInt32(Console.ReadLine());
-int [] array = new int [3];
-if (number>99 && number<1000)
+// System.Console.WriteLine("Введите трехзначное натуральное число");
+// int number = Convert.ToInt32(Console.ReadLine());
+// int [] array = new int [3];
+// if (number>99 && number<1000)
+// {
+//     for (int i = 0; i < array.Length; i++)
+// {
+//     array[i] = number%10;
+//     number = number/10;
+//     System.Console.Write(array[i]+" ");
+// }
+// }
+// else
+// {
+//     System.Console.WriteLine("число введено некорректно");
+// }
+
+
+// // Задайте массив из N случайных целых чисел (N вводится с
+// // клавиатуры).
+// // Найдите количество чисел, которые оканчиваются на 1 и
+// // делятся нацело на 7.
+// // Пример
+// // [1 5 11 21 81 4 0 91 2 3]
+// // => 2
+
+// // тип возвращающего значения + Название + ()+ {}
+
+System.Console.WriteLine("Введите число");
+int num = Convert.ToInt32(Console.ReadLine());
+int [] array = new int[num];
+
+void PrintArray()
 {
     for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(10,100);
+        System.Console.Write(array[i] + " ");
+    }
+}
+
+int FindNumber()
 {
-    array[i] = number%10;
-    number = number/10;
-    System.Console.Write(array[i]+" ");
+    int countNumber=0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i]%10 ==1 && array[i]%7 ==0)
+        {
+            countNumber++;
+        }
+    }
+    return countNumber;
 }
-}
-else
-{
-    System.Console.WriteLine("число введено некорректно");
-}
+
+PrintArray();
+int countNumbers = FindNumber();
+System.Console.WriteLine();
+System.Console.WriteLine(countNumbers);
